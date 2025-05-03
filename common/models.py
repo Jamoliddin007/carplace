@@ -12,8 +12,9 @@ class BaseModel(models.Model):
 
 class MediaFile(BaseModel):
     file = models.FileField(upload_to='files')
-    car = models.ForeignKey('cars.Car', on_delete=models.CASCADE, related_name='media_files')
+    car = models.ForeignKey('cars.Car', on_delete=models.CASCADE, related_name='media_files',null=True, blank=True)
     
 
     def __str__(self):
         return self.file.name
+    
